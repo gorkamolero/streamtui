@@ -780,9 +780,10 @@ impl App {
                 }
             }
             AppMessage::PlaybackStarted { stream_url } => {
-                // Update torrent session with stream URL (state comes from log monitor)
+                // Mark stream as active immediately; log monitor can still refine later states.
                 if let Some(ref mut session) = self.playing.torrent {
                     session.stream_url = Some(stream_url);
+                    session.state = TorrentState::Streaming;
                 }
             }
             AppMessage::PlaybackStopped => {

@@ -980,6 +980,7 @@ mod cast_helpers {
             subtitle: None,
             subtitle_id: None,
             no_subtitle: false,
+            subtitle_file: None,
             start: None,
             vlc: false,
         }
